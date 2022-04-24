@@ -1,24 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import {getBooksData} from './services/book-api';
+
+import Books from './components/Books';
+import styles from './App.module.scss';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section className={styles.App}>
+      <h1>My Books</h1>
+      <Books list={getBooksData()} />
+    </section>
   );
 }
 
