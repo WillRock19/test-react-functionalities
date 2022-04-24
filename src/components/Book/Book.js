@@ -1,13 +1,18 @@
 import styles from './Book.module.scss';
+import CurrencyContext from '../../context/currency';
 
 const Book = ({ item }) => {
     return (
-        <li className={styles.bookItem}>
-            <span>{item.title}</span>
-            <span className={styles.price}>
-                R$ {item.price}
-            </span>
-        </li>
+        <CurrencyContext.Consumer>
+            {(currency) => (
+                <li className={styles.bookItem}>
+                    <span>{item.title}</span>
+                    <span className={styles.price}>
+                        {currency} {item.price}
+                    </span>
+                </li>
+            )}
+        </CurrencyContext.Consumer>
     );
 }
 
