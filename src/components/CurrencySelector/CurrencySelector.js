@@ -3,12 +3,12 @@ import styles from './CurrencySelector.module.scss';
 
 const CurrencySelector = ({currencies}) => {
 
-    const [currency, setCurrency] = useCurrency();
+    const {onChange} = useCurrency();
 
     return (
         <section className={styles.CurrencySelection}>
           {Object.values(currencies).map(item => (
-            <button key={item.code} onClick={() => setCurrency(item)}>{item.label}</button>
+            <button key={item.code} onClick={() => onChange(item)}>{item.label}</button>
           ))}
         </section>
     );

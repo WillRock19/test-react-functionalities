@@ -3,24 +3,24 @@ import { getCurrencies } from '../services/currencies-api';
 
 const currencies = getCurrencies();
 const CurrencyContext = React.createContext({code: '', conversionRate: 0, label: ''});
-const useCurrency = () => React.useContext(CurrencyContext);
 
-const CurrencyProvider = ({value, children}) => {
-    const [currency, setCurrency] = useState(currencies.Real);
-
+const useCurrency = () => {
+    const [currency, setCurrency] = React.useContext(CurrencyContext);
     const handleChangeCurrency = (currency) => {
-        console.log("Let's change it?");
         setCurrency(currency);
     };
 
+    return { value: currency, onChange: handleChangeCurrency };
+};
+
+const CurrencyProvider = ({children}) => {
+    const [currency, setCurrency] = useState(currencies.Real);
+
     return (
-        <CurrencyContext.Provider value={[currency, handleChangeCurrency]}>
+        <CurrencyContext.Provider value={[currency, setCurrency]}>
             {children}
         </CurrencyContext.Provider>
     );
 }
 
-
 export {CurrencyProvider, useCurrency};
-
-export default CurrencyContext;
