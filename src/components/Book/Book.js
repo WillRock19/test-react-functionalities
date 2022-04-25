@@ -1,13 +1,14 @@
 import styles from './Book.module.scss';
-import CurrencyContext from '../../context/currency';
-import { useContext } from 'react';
+import {useCurrency} from '../../context/currency';
 
 const formattedPrice = (currencyCode, price) => {
     return new Intl.NumberFormat(undefined, {style: 'currency', currency: currencyCode}).format(price);
 }
 
 const Book = ({ item }) => {
-    const currency = useContext(CurrencyContext);
+    const [currency, setCurrency] = useCurrency();
+
+    console.log(currency);
 
     return (
         <li className={styles.bookItem}>
