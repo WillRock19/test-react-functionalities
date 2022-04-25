@@ -5,7 +5,7 @@ const CurrencySelector = ({onChoose, currencies}) => {
     return (
         <section className={styles.CurrencySelection}>
           {Object.values(currencies).map(item => (
-            <button key={item.symbol} onClick={() => onChoose(item)}>{item.label}</button>
+            <button key={item.code} onClick={() => onChoose(item)}>{item.label}</button>
           ))}
         </section>
     );

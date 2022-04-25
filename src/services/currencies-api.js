@@ -1,15 +1,18 @@
 export const getCurrencies = () => {
     return {
         Euro: {
-            symbol: '€',
+            code: 'EUR',
+            conversionRate: 6,
             label: 'Euro',
         },
         Usd: {
-            symbol: '$',
+            code: 'USD',
+            conversionRate: 4.70,
             label: 'US Dollar',
         },
         Real: {
-            symbol: 'R$',
+            code: 'BRL',
+            conversionRate: 1,
             label:  'Brazilian Reais',
         },
     }
