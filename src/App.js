@@ -5,23 +5,20 @@ import { getCurrencies } from "./services/currencies-api";
 import Books from "./components/Books";
 import styles from "./App.module.scss";
 import CurrencyContext from "./context/currency";
+import CurrencySelector from "./components/CurrencySelector";
 
 function App() {
-  const [currency, setCurrency] = useState("R$");
+  const [currency, setCurrency] = useState(getCurrencies().Real);
 
   const handleChangeCurrency = (currency) => {
     setCurrency(currency);
   };
-  
+
   return (
     <CurrencyContext.Provider value={currency}>
       <section className={styles.App}>
         <h1>My Books</h1>
-        <section className={styles.CurrencySelection}>
-          {Object.values(getCurrencies()).map(item => (
-            <button onClick={() => handleChangeCurrency(item.symbol)}>{item.label}</button>
-          ))}
-        </section>
+        <CurrencySelector currencies={getCurrencies()} onChoose={handleChangeCurrency} />
         <Books list={getBooksData()} />
       </section>
     </CurrencyContext.Provider>

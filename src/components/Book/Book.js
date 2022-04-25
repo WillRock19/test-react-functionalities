@@ -10,7 +10,7 @@ const Book = ({ item }) => {
         <li className={styles.bookItem}>
             <span>{item.title}</span>
             <span className={styles.price}>
-                {currency} {item.price}
+                {currency.symbol} {item.price}
             </span>
         </li>
     );
