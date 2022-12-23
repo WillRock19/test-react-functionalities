@@ -1,5 +1,5 @@
-import styles from "./Book.module.scss";
 import { useCurrency } from "../../context/currency";
+import styles from "./Book.module.scss";
 
 const formattedPrice = (currencyCode, price) => {
   return new Intl.NumberFormat(undefined, {

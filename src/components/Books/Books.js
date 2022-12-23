@@ -1,5 +1,5 @@
-import styles from './Books.module.scss';
 import Book from '../Book/Book';
+import styles from './Books.module.scss';
 
 const Books = ({list}) => {
     return (

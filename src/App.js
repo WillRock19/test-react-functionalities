@@ -1,9 +1,9 @@
 import { getBooksData } from "./services/book-api";
 import { getCurrencies } from "./services/currencies-api";
+import { CurrencyProvider } from "./context/currency";
 
 import Books from "./components/Books";
 import styles from "./App.module.scss";
-import {CurrencyProvider} from "./context/currency";
 import CurrencySelector from "./components/CurrencySelector";
 
 function App() {
